@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Se Taylor. Geopolitical Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDE6D8;
+  --paper-raised:#F4EFE4;
+  --ink:#33291F;
+  --ink-soft:#6E6151;
+  --line:#D6CCBA;
+  --cinnabar:#96491F;
+  --archive-green:#5C6B3C;
+  --stamp:#96491F;
+  --mono:'Spline Sans Mono',monospace;
+  --sans:'Karla',sans-serif;
+  --display:'Fraunces',serif;
+}
+[data-theme="dark"]{
+  --paper:#211A13;
+  --paper-raised:#2A2219;
+  --ink:#E9E1D2;
+  --ink-soft:#A99C87;
+  --line:#3E3529;
+  --cinnabar:#D08954;
+  --archive-green:#A3B076;
+  --stamp:#D08954;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  font-size:16px;
+  transition:background .25s,color .25s;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cinnabar);outline-offset:3px}
+.mono{font-family:var(--mono)}
+
+/* ---------- layout shell ---------- */
+.shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+@media(max-width:860px){.shell{grid-template-columns:1fr}}
+
+/* ---------- navbar (file index) ---------- */
+nav.index{
+  border-right:1px solid var(--line);
+  padding:28px 20px;
+  position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;gap:0;
+}
+@media(max-width:860px){
+  nav.index{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:18px 20px}
+}
+.brand{margin-bottom:26px}
+.brand .name{
+  font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:.01em;
+}
+.brand .role{font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+.navlist{list-style:none;display:flex;flex-direction:column}
+@media(max-width:860px){.navlist{flex-direction:row;flex-wrap:wrap;gap:2px 14px}}
+.navlist a{
+  display:flex;gap:10px;align-items:baseline;
+  text-decoration:none;padding:7px 6px;
+  border-left:2px solid transparent;
+  font-size:.85rem;font-weight:500;
+}
+.navlist a .ref{font-family:var(--mono);font-size:.62rem;color:var(--ink-soft)}
+.navlist a:hover{border-left-color:var(--line)}
+.navlist a.active{border-left-color:var(--cinnabar);color:var(--cinnabar)}
+.navlist a.active .ref{color:var(--cinnabar)}
+@media(max-width:860px){
+  .navlist a{border-left:0;border-bottom:2px solid transparent;padding:5px 2px}
+  .navlist a:hover{border-bottom-color:var(--line)}
+  .navlist a.active{border-bottom-color:var(--cinnabar)}
+}
+.nav-foot{margin-top:auto;padding-top:20px}
+@media(max-width:860px){.nav-foot{margin-top:12px;padding-top:8px}}
+
+/* theme toggle */
+.toggle{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:1px solid var(--line);color:var(--ink);
+  padding:7px 12px;cursor:pointer;
+}
+.toggle:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+
+/* ---------- main ---------- */
+main{padding:0 clamp(20px,5vw,72px) 80px;max-width:980px}
+.page{display:none;animation:appear .35s ease both}
+.page.visible{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .page{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* page header: registry line + stamp */
+.pagehead{
+  padding:34px 0 22px;border-bottom:1px solid var(--ink);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+}
+.pagehead .fileref{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px}
+.pagehead h1{
+  font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3rem);
+  font-weight:550;line-height:1.05;letter-spacing:.005em;
+}
+.stamp{
+  flex-shrink:0;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stamp);border:2px solid var(--stamp);padding:8px 12px;
+  transform:rotate(-6deg);opacity:.85;text-align:center;line-height:1.5;
+  user-select:none;
+}
+@media(max-width:560px){.stamp{display:none}}
+
+section.block{padding:30px 0;border-bottom:1px solid var(--line)}
+section.block:last-child{border-bottom:0}
+.block h2{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cinnabar);margin-bottom:16px;
+}
+.lede{font-size:1.12rem;max-width:620px}
+p+p{margin-top:12px}
+.muted{color:var(--ink-soft)}
+.small{font-size:.85rem}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--ink)}
+.hero .fileref{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px}
+.hero h1{
+  font-family:var(--display);font-size:clamp(2.3rem,6vw,4.2rem);
+  line-height:1.04;font-weight:550;
+}
+.hero h1 .accent{color:var(--cinnabar)}
+.hero .sub{margin-top:22px;max-width:560px;font-size:1.08rem;color:var(--ink-soft)}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px}
+.hero-meta div{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
+.hero-meta strong{display:block;color:var(--ink);font-size:.8rem;margin-top:3px}
+.hero-stampwrap{margin-top:34px}
+
+/* ---------- cards ---------- */
+.cardlist{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{
+  background:var(--paper);padding:20px 22px;
+  display:grid;grid-template-columns:74px 1fr auto;gap:18px;align-items:baseline;
+}
+@media(max-width:640px){.card{grid-template-columns:1fr}}
+.card:hover{background:var(--paper-raised)}
+.card .ref{font-family:var(--mono);font-size:.64rem;color:var(--ink-soft);letter-spacing:.06em}
+.card h3{font-size:1.02rem;font-weight:700;line-height:1.25}
+.card .desc{font-size:.88rem;color:var(--ink-soft);margin-top:5px;max-width:520px}
+.card .tag{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--archive-green);border:1px solid var(--archive-green);padding:3px 8px;white-space:nowrap;
+}
+
+/* project cards */
+.projgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.proj{
+  border:1px solid var(--line);padding:22px;background:var(--paper-raised);
+  display:flex;flex-direction:column;gap:10px;
+}
+.proj .ref{font-family:var(--mono);font-size:.62rem;color:var(--cinnabar);letter-spacing:.1em}
+.proj h3{font-family:var(--display);font-size:1.15rem;font-weight:560;line-height:1.25}
+.proj p{font-size:.86rem;color:var(--ink-soft)}
+.proj .status{
+  margin-top:auto;padding-top:12px;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--archive-green);
+}
+
+/* ---------- timeline ---------- */
+.timeline{list-style:none;border-left:1px solid var(--ink);margin-left:6px}
+.timeline li{position:relative;padding:0 0 26px 26px}
+.timeline li::before{
+  content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;
+  background:var(--cinnabar);border-radius:50%;
+}
+.timeline .when{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase}
+.timeline .what{font-weight:700;margin-top:2px}
+.timeline .note{font-size:.87rem;color:var(--ink-soft);margin-top:3px;max-width:520px}
+
+/* ---------- search bar ---------- */
+.searchbar{display:flex;gap:0;margin-bottom:20px;border:1px solid var(--ink);max-width:460px}
+.searchbar input{
+  flex:1;border:0;background:transparent;color:var(--ink);
+  font-family:var(--mono);font-size:.8rem;padding:10px 14px;
+}
+.searchbar input::placeholder{color:var(--ink-soft)}
+.searchbar input:focus{outline:none}
+.searchbar .icon{
+  font-family:var(--mono);font-size:.7rem;padding:10px 14px;color:var(--ink-soft);
+  border-left:1px solid var(--line);align-self:stretch;display:flex;align-items:center;
+}
+.no-results{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);padding:18px 0;display:none}
+
+/* ---------- dashboard ---------- */
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.dash .cell{background:var(--paper-raised);padding:20px}
+.dash .num{font-family:var(--display);font-size:2.1rem;font-weight:560;line-height:1}
+.dash .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+.bars{margin-top:26px;display:flex;flex-direction:column;gap:12px;max-width:560px}
+.bar-row{display:grid;grid-template-columns:170px 1fr;gap:14px;align-items:center}
+@media(max-width:560px){.bar-row{grid-template-columns:1fr}}
+.bar-row .lbl{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+.bar{height:10px;background:var(--paper-raised);border:1px solid var(--line);position:relative}
+.bar span{position:absolute;inset:0;background:var(--archive-green);transform-origin:left;width:var(--w)}
+
+/* ---------- map placeholder ---------- */
+.map{
+  border:1px solid var(--ink);height:300px;position:relative;overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 39px,var(--line) 39px 40px),
+    repeating-linear-gradient(90deg,transparent 0 39px,var(--line) 39px 40px),
+    var(--paper-raised);
+}
+.map .route{position:absolute;inset:0;width:100%;height:100%}
+.map .caption{
+  position:absolute;left:14px;bottom:12px;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  background:var(--paper);padding:4px 8px;border:1px solid var(--line);
+}
+.map .node-label{font-family:var(--mono);font-size:.6rem;fill:var(--ink);letter-spacing:.08em}
+
+/* ---------- cv ---------- */
+.cvrow{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:14px 0;border-bottom:1px dotted var(--line)}
+@media(max-width:560px){.cvrow{grid-template-columns:1fr;gap:4px}}
+.cvrow .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.cvrow .v strong{display:block;font-weight:700}
+.cvrow .v .sub{font-size:.86rem;color:var(--ink-soft)}
+.btn{
+  display:inline-block;margin-top:22px;text-decoration:none;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--ink);padding:11px 20px;color:var(--ink);
+}
+.btn:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+
+/* ---------- contact ---------- */
+.contactline{font-family:var(--mono);font-size:.85rem;padding:10px 0;border-bottom:1px dotted var(--line);display:flex;gap:16px;flex-wrap:wrap}
+.contactline .k{color:var(--ink-soft);min-width:110px;text-transform:uppercase;font-size:.68rem;letter-spacing:.1em;padding-top:2px}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:1px solid var(--ink);margin-top:50px;padding:22px 0 0;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* ---------- softening ---------- */
+.card h3{font-family:var(--display);font-weight:560;font-size:1.1rem}
+.stamp,.toggle,.btn,.proj,.searchbar,.map,.dash,.cardlist,.card .tag{border-radius:4px}
+.stamp{border-width:1.5px}
+.pagehead,.hero{border-bottom-color:var(--line)}
+.pagehead{border-bottom-width:1px}
+footer{border-top-color:var(--line)}
+.timeline{border-left-color:var(--line)}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ============ Navbar ============ -->
+  <nav class="index" aria-label="Site index">
+    <div class="brand">
+      <div class="name">Se Taylor</div>
+      <div class="role">Geopolitical research</div>
+    </div>
+    <ul class="navlist" id="nav">
+      <li><a href="#/home" data-route="home"><span class="ref">A/01</span>Home</a></li>
+      <li><a href="#/about" data-route="about"><span class="ref">A/02</span>About</a></li>
+      <!--<li><a href="#/research" data-route="research"><span class="ref">B/01</span>Research</a></li>-->
+      <li><a href="#/writing" data-route="writing"><span class="ref">B/02</span>Writing</a></li>
+      <li><a href="#/projects" data-route="projects"><span class="ref">B/03</span>Projects</a></li>
+      <li><a href="#/bridge-africa-china" data-route="bridge-africa-china"><span class="ref">C/01</span>Bridge Africa China</a></li>
+      <!--<li><a href="#/library" data-route="library"><span class="ref">D/01</span>Library</a></li>-->
+      <li><a href="#/cv" data-route="cv"><span class="ref">E/01</span>CV</a></li>
+      <li><a href="#/contact" data-route="contact"><span class="ref">E/02</span>Contact</a></li>
+    </ul>
+    <div class="nav-foot">
+      <button class="toggle" id="themeToggle" aria-pressed="false">Theme: Light</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============ Home ============ -->
+    <div class="page" id="page-home">
+      <header class="hero">
+        <div class="fileref">Registry / Personal file / Open access</div>
+        <h1>studying<br>power,<br><span class="accent">people</span><br>and conflicts</h1>
+        <p class="sub">Independent researcher working on institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg.</p>
+        <div class="hero-meta">
+          <div>Focus<strong>Africa China relations</strong></div>
+          <div>Method<strong>OSINT and records analysis</strong></div>
+          <div>Casework<strong>UK FOIA, tribunal stage</strong></div>
+        </div>
+        <div class="hero-stampwrap">
+          <span class="stamp" style="display:inline-block">Reviewed<br>2026</span>
+        </div>
+      </header>
+
+      <section class="block">
+        <h2>Selected work</h2>
+        <div class="cardlist">
+          <a class="card" href="#/projects" style="text-decoration:none">
+            <span class="ref">P/01</span>
+            <span><h3>Freedom of information casework, First-tier Tribunal</h3><span class="desc">A self-directed case in applied administrative law, argued without representation across three procedural stages.</span></span>
+            <span class="tag">Casework</span>
+          </a>
+          <a class="card" href="#/writing" style="text-decoration:none">
+            <span class="ref">P/02</span>
+            <span><h3>Political Risks Facing Chinese Mining Investements in the Sahel</h3><span class="desc">An assessment of the political, security, and operational risks affecting Chinese mining companies operating across the Sahel, with particular attention to military coups, resource nationalism, insurgent violence, and changing geopolitical dynamics.</span></span>
+            <span class="tag">Analysis</span>
+          </a>
+          <a class="card" href="#/projects" style="text-decoration:none">
+            <span class="ref">P/03</span>
+            <span><h3>Russia Ukraine diplomatic chronology</h3><span class="desc">Multilingual reconstruction of negotiation timelines from primary and open sources, 2023 to 2025.</span></span>
+            <span class="tag">Chronology</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Now</h2>
+        <p class="lede">Building Bridge Africa China, a research and intelligence platform connecting African and Chinese institutions across policy, trade and diplomacy. Studying Mandarin and China Africa economic history alongside active casework.</p>
+      </section>
+    </div>
+
+    <!-- ============ About ============ -->
+    <div class="page" id="page-about">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File A/02 / Biography</div>
+          <h1>About</h1>
+        </div>
+        <span class="stamp">Verified<br>record</span>
+      </header>
+
+      <section class="block">
+        <p class="lede">I am a researcher trained in international relations, working at the intersection of institutional accountability, information rights and Africa China relations.</p>
+        <p class="muted">My work starts from records. Diplomatic chronologies, disclosure requests, procurement trails and open sources in multiple languages. I am interested in what institutions write down, what they withhold, and what the gap between the two reveals about how power actually operates.</p>
+        <p class="muted">I hold a BA in International Relations from Stellenbosch University and have worked as a research assistant on Russia Ukraine diplomatic history, as an administrator in the non-profit sector, and as an independent litigant in UK information rights proceedings.</p>
+      </section>
+
+      <section class="block">
+        <h2>Timeline</h2>
+        <ul class="timeline">
+          <li>
+            <div class="when">2025 to present</div>
+            <div class="what">Founder, Bridge Africa China</div>
+            <div class="note">Early-stage consulting and intelligence platform on African and Chinese institutional relations.</div>
+          </li>
+          <li>
+            <div class="when">2023 to present</div>
+            <div class="what">FOIA casework, Cabinet Office</div>
+            <div class="note">Request, internal review, ICO complaint and First-tier Tribunal appeal, prepared without legal representation.</div>
+          </li>
+          <li>
+            <div class="when">2023 to 2025</div>
+            <div class="what">Research assistant, Listening to the Other Side</div>
+            <div class="note">Russia Ukraine diplomatic chronologies, multilingual OSINT and multimedia research outputs for Edward M. Druce.</div>
+          </li>
+          <li>
+            <div class="when">2019 to 2023</div>
+            <div class="what">BA International Relations, Stellenbosch University</div>
+            <div class="note">Focus on institutional accountability, transparency and East West geopolitical perspectives.</div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ============ Research ============ -->
+    <!--<div class="page" id="page-research">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File B/01 / Methods and output</div>
+          <h1>Research</h1>
+        </div>
+        <span class="stamp">Open<br>source</span>
+      </header>
+
+      <section class="block">
+        <h2>Dashboard</h2>
+        <div class="dash">
+          <div class="cell"><div class="num">3</div><div class="lbl">Procedural stages argued, FOIA case</div></div>
+          <div class="cell"><div class="num">7</div><div class="lbl">FOIA exemptions engaged and analysed</div></div>
+          <div class="cell"><div class="num">18</div><div class="lbl">Months of chronology reconstruction</div></div>
+          <div class="cell"><div class="num">4+</div><div class="lbl">Source languages navigated</div></div>
+        </div>
+        <div class="bars" aria-hidden="true">
+          <div class="bar-row"><span class="lbl">Records analysis</span><div class="bar"><span style="--w:92%"></span></div></div>
+          <div class="bar-row"><span class="lbl">OSINT verification</span><div class="bar"><span style="--w:86%"></span></div></div>
+          <div class="bar-row"><span class="lbl">Administrative law</span><div class="bar"><span style="--w:74%"></span></div></div>
+          <div class="bar-row"><span class="lbl">Mandarin (in progress)</span><div class="bar"><span style="--w:30%"></span></div></div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Focus areas</h2>
+        <div class="cardlist">
+          <div class="card"><span class="ref">R/01</span><span><h3>Institutional transparency and information rights</h3><span class="desc">How disclosure regimes work in practice. Exemption reasoning, public interest balancing and tribunal procedure, studied through live casework rather than doctrine alone.</span></span><span class="tag">Core</span></div>
+          <div class="card"><span class="ref">R/02</span><span><h3>Africa China political economy</h3><span class="desc">Investment, critical minerals and diplomatic sequencing between African states and Chinese institutions, with attention to leverage and dependence.</span></span><span class="tag">Core</span></div>
+          <div class="card"><span class="ref">R/03</span><span><h3>Diplomatic chronology and OSINT</h3><span class="desc">Timeline reconstruction from multilingual open sources, applied to the Russia Ukraine negotiation record.</span></span><span class="tag">Method</span></div>
+        </div>
+      </section>
+    </div>-->
+
+    <!--============ Writing ============ -->
+    <div class="page" id="page-writing">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File B/02 / Published and working papers</div>
+          <h1>Writing</h1>
+        </div>
+        <span class="stamp">For<br>release</span>
+      </header>
+
+      <section class="block">
+        <div class="searchbar" role="search">
+          <input type="search" id="writingSearch" placeholder="Filter by title, topic or year" aria-label="Filter writing">
+          <span class="icon">FIND</span>
+        </div>
+        <div class="cardlist" id="writingList">
+          <div class="card searchable"><span class="ref">W/01</span><span><h3>The China dependence paradox in Zimbabwe's minerals policy</h3><span class="desc">Why sequencing, not resource endowment, is Zimbabwe's key strategic advantage. 2026, working paper.</span></span><span class="tag">Analysis</span></div>
+          <div class="card searchable"><span class="ref">W/02</span><span><h3>What an FOI refusal teaches you about the state</h3><span class="desc">Notes on exemption reasoning and the public interest test from inside a live tribunal appeal. 2025, essay.</span></span><span class="tag">Essay</span></div>
+          <div class="card searchable"><span class="ref">W/03</span><span><h3>Reading the April 2022 Kyiv record</h3><span class="desc">A sourcing note on the diplomatic chronology around early Russia Ukraine negotiations. 2025, research note.</span></span><span class="tag">Note</span></div>
+          <div class="card searchable"><span class="ref">W/04</span><span><h3>Indonesia's nickel ban as a template, and its limits</h3><span class="desc">Applying an export restriction framework to Southern African critical minerals. 2025, comparative brief.</span></span><span class="tag">Brief</span></div>
+        </div>
+        <p class="no-results" id="writingEmpty">No entries match. Clear the filter to show all records.</p>
+      </section>
+    </div>
+
+    <!-- ============ Projects ============ -->
+    <div class="page" id="page-projects">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File B/03 / Active and completed</div>
+          <h1>Projects</h1>
+        </div>
+        <span class="stamp">In<br>progress</span>
+      </header>
+
+      <section class="block">
+        <div class="projgrid">
+          <div class="proj">
+            <span class="ref">FOI2023/11553</span>
+            <h3>Cabinet Office disclosure case</h3>
+            <p>Request for records of the 9 April 2022 Kyiv visit. Refused, upheld at internal review, escalated through the ICO and appealed to the First-tier Tribunal. Grounds of appeal prepared without representation. Exemptions engaged include ss.23, 24, 26, 27, 35, 38 and 40 FOIA.</p>
+            <span class="status">Status: tribunal stage</span>
+          </div>
+        
+          <div class="proj">
+            <span class="ref">RU/UA 23-25</span>
+            <h3>Russia-Ukraine chronology</h3>
+            <p>Eighteen months of timeline reconstruction on Russia Ukraine diplomacy for Listening to the Other Side. Multilingual sourcing, verification and multimedia research outputs.</p>
+            <span class="status">Status: complete</span>
+          </div>
+          <div class="proj">
+            
+            <span class="ref">BAC/01</span>
+            <h3>Bridge Africa China</h3>
+            <p>Founding a consulting and intelligence platform on Africa China institutional relations. Currently in identity and groundwork phase. See the dedicated file.</p>
+            <span class="status">Status: early stage</span>
+            
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ Bridge Africa China ============ -->
+    <div class="page" id="page-bridge-africa-china">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File C/01 / Venture</div>
+          <h1>Bridge<br>Africa China</h1>
+        </div>
+        <span class="stamp">Founding<br>document</span>
+      </header>
+
+      <section class="block">
+        <p class="lede">A consulting and intelligence platform connecting African and Chinese institutions across policy, trade and diplomacy.</p>
+        <p class="muted">The premise is simple. The Africa China relationship is the most consequential economic corridor of the coming decades, and it is chronically under-analysed from the African side. Bridge Africa China exists to close that gap with rigorous, records-based intelligence rather than sentiment in either direction.</p>
+      </section>
+
+      <section class="block">
+        <h2>Corridor</h2>
+        <div class="map" role="img" aria-label="Stylised map placeholder showing a route between Johannesburg, Harare and Beijing">
+          <svg class="route" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M120,240 C 300,60 520,40 690,80" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="6 6"/>
+            <circle cx="120" cy="240" r="5" fill="var(--archive-green)"/>
+            <circle cx="330" cy="130" r="4" fill="var(--archive-green)"/>
+            <circle cx="690" cy="80" r="5" fill="var(--archive-green)"/>
+            <text x="132" y="244" class="node-label">JOHANNESBURG</text>
+            <text x="342" y="134" class="node-label">HARARE</text>
+            <text x="600" y="70" class="node-label">BEIJING</text>
+          </svg>
+          <span class="caption">Map placeholder / interactive corridor map planned</span>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Build sequence</h2>
+        <ul class="timeline">
+          <li><div class="when">Phase 1, current</div><div class="what">Identity and groundwork</div><div class="note">Mission, positioning and foundational research capacity.</div></li>
+          <li><div class="when">Phase 2</div><div class="what">Intellectual authority</div><div class="note">Mandarin, business study and a published body of Africa China analysis.</div></li>
+          <li><div class="when">Phase 3</div><div class="what">Scale</div><div class="note">Client work across policy, trade and diplomatic advisory.</div></li>
+        </ul>
+      </section>
+    </div>
+
+   <!-- ============ Library ============ -->
+    <!--<div class="page" id="page-library">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File D/01 / Reading record</div>
+          <h1>Library</h1>
+        </div>
+        <span class="stamp">Catalogue</span>
+      </header>
+
+      <section class="block">
+        <div class="searchbar" role="search">
+          <input type="search" id="librarySearch" placeholder="Filter the catalogue" aria-label="Filter library">
+          <span class="icon">FIND</span>
+        </div>
+        <div class="cardlist" id="libraryList">
+          <div class="card searchable"><span class="ref">L/01</span><span><h3>FOIA exemption guidance and tribunal decisions</h3><span class="desc">ICO guidance, First-tier Tribunal case law and the public interest test in practice.</span></span><span class="tag">Law</span></div>
+          <div class="card searchable"><span class="ref">L/02</span><span><h3>China Africa economic history</h3><span class="desc">Investment flows, debt structures and the institutional architecture of the relationship.</span></span><span class="tag">Economics</span></div>
+          <div class="card searchable"><span class="ref">L/03</span><span><h3>Critical minerals and export policy</h3><span class="desc">Resource nationalism frameworks, Indonesia's nickel precedent and Southern African value chains.</span></span><span class="tag">Policy</span></div>
+          <div class="card searchable"><span class="ref">L/04</span><span><h3>OSINT method and verification</h3><span class="desc">Sourcing discipline, chronology construction and multilingual verification practice.</span></span><span class="tag">Method</span></div>
+          <div class="card searchable"><span class="ref">L/05</span><span><h3>Mandarin study materials</h3><span class="desc">Working through structured self-study toward research-grade reading ability.</span></span><span class="tag">Language</span></div>
+        </div>
+        <p class="no-results" id="libraryEmpty">No entries match. Clear the filter to show all records.</p>
+      </section>
+    </div>
+    -->
+
+    <!-- ============ CV ============ -->
+    <div class="page" id="page-cv">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File E/01 / Curriculum vitae</div>
+          <h1>CV</h1>
+        </div>
+        <span class="stamp">Current<br>version</span>
+      </header>
+
+      <section class="block">
+        <h2>Experience</h2>
+        <div class="cvrow"><span class="k">2025 to now</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Africa China consulting and intelligence platform, early stage.</span></span></div>
+        <div class="cvrow"><span class="k">2023 to now</span><span class="v"><strong>Administrator, Ntuli Foundation</strong><span class="sub">Board coordination, professional communications and drafting.</span></span></div>
+        <div class="cvrow"><span class="k">2023 to 2025</span><span class="v"><strong>Research assistant, Listening to the Other Side</strong><span class="sub">Russia Ukraine diplomatic chronologies, multilingual OSINT, multimedia research outputs.</span></span></div>
+      </section>
+
+      <section class="block">
+        <h2>Casework</h2>
+        <div class="cvrow"><span class="k">2023 to now</span><span class="v"><strong>FOIA request, internal review, ICO complaint and tribunal appeal</strong><span class="sub">Applied administrative law and institutional reasoning across seven engaged exemptions, self-represented.</span></span></div>
+      </section>
+
+      <section class="block">
+        <h2>Education and development</h2>
+        <div class="cvrow"><span class="k">2019 to 2023</span><span class="v"><strong>BA International Relations, Stellenbosch University</strong></span></div>
+        <div class="cvrow"><span class="k">Ongoing</span><span class="v"><strong>Mandarin, self-directed China Africa economics, information rights</strong><span class="sub">Developed through structured study and active casework.</span></span></div>
+        <a class="btn" href="cv-2026" onclick="return false">Download full CV (PDF)</a> <a class="btn" href="#" onclick="return false">Download full CV (PDF)</a>
+      </section>
+      <section class="block">
+        <h2>Recommendations</h2>
+        <div class="cardlist">
+            <a class="card"  style="text-decoration:none">
+            <span class="ref"></span>
+            <span><h3>Edward M. Druce</h3><span class="desc">Se is an absolutely brilliant research assistant and team player. She was critical in sourcing key information, as well as providing creative insights and perspectives of her own. Always punctual, optimistic, and fiercely diligent, any organisation would be truly lucky to have her!</span></span>
+          
+          </a>
+          <a class="card"  style="text-decoration:none">
+            <span class="ref"></span>
+            <span><h3>Sang-Hwa Lee</h3><span class="desc">Se is an absolutely brilliant research assistant and team player. She was critical in sourcing key information, as well as providing creative insights and perspectives of her own. Always punctual, optimistic, and fiercely diligent, any organisation would be truly lucky to have her!</span></span>
+           
+          </a>
+          <a class="card"  style="text-decoration:none">
+            <span class="ref"></span>
+            <span><h3>Catherine Lily Hervieu</h3><span class="desc">Se is a fantastic researcher, and supportive colleague. She is extremely skilled at finding information, books, and websites, that you would otherwise spend hours scouring the internet for! Se guided me through the organization when I joined, and always went the extra mile to help others with their tasks. She has a brilliant knowledge on international relations and global conflicts.</span></span>
+            
+          </a>
+        </div>
+      </section>
+    </div>
+    
+
+    
+      </header>
+
+  
+
+    <!-- ============ Contact ============ -->
+    <div class="page" id="page-contact">
+      <header class="pagehead">
+        <div>
+          <div class="fileref">File E/02 / Correspondence</div>
+          <h1>Contact</h1>
+        </div>
+        <span class="stamp">Reply<br>expected</span>
+      </header>
+
+      <section class="block">
+        <p class="lede">Open to research roles, commissions and collaboration in geopolitical analysis, information rights and Africa China work.</p>
+        <div style="margin-top:26px">
+          <div class="contactline"><span class="k">Email</span><span>se@setaylorr.com</span></div>
+          <div class="contactline"><span class="k">Location</span><span>Johannesburg, South Africa. Remote worldwide.</span></div>
+          <div class="contactline"><span class="k">Casework</span><span>Public record via WhatDoTheyKnow</span></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ Footer ============ -->
+    <footer>
+      <span>Se Taylor / Registry of work</span>
+      <span>Compiled 2026 / All records open unless noted</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// ---------- Router ----------
+const routes = ["home","about","research","writing","projects","bridge-africa-china","library","cv","contact"];
+function route(){
+  let hash = location.hash.replace("#/","");
+  if(!routes.includes(hash)) hash = "home";
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("visible"));
+  document.getElementById("page-" + hash).classList.add("visible");
+  document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("active", a.dataset.route === hash));
+  window.scrollTo({top:0, behavior:"instant"});
+}
+window.addEventListener("hashchange", route);
+route();
+
+// ---------- Theme toggle ----------
+const toggle = document.getElementById("themeToggle");
+toggle.addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.getAttribute("data-theme") === "dark";
+  root.setAttribute("data-theme", dark ? "light" : "dark");
+  toggle.textContent = "Theme: " + (dark ? "Light" : "Dark");
+  toggle.setAttribute("aria-pressed", String(!dark));
+});
+
+// ---------- Search bars ----------
+function bindSearch(inputId, listId, emptyId){
+  const input = document.getElementById(inputId);
+  const list = document.getElementById(listId);
+  const empty = document.getElementById(emptyId);
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    list.querySelectorAll(".searchable").forEach(card => {
+      const hit = card.textContent.toLowerCase().includes(q);
+      card.style.display = hit ? "" : "none";
+      if(hit) shown++;
+    });
+    empty.style.display = shown ? "none" : "block";
+  });
+}
+bindSearch("writingSearch","writingList","writingEmpty");
+bindSearch("librarySearch","libraryList","libraryEmpty");
+</script>
+</body>
+</html>
