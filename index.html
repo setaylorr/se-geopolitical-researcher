@@ -405,7 +405,7 @@
             text-decoration: none;
         }
 
-        /* project cards – now clickable links */
+        /* project cards */
         .projgrid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -741,7 +741,7 @@
             border-bottom-color: var(--cinnabar);
         }
 
-        /* sahel paper specific – keep styling clean */
+        /* sahel paper specific */
         .sahel-sub {
             color: var(--ink-soft);
             margin-bottom: 30px;
@@ -814,7 +814,7 @@
             opacity: 0.7;
         }
 
-        /* ----- CONTACT PAGE – no form, no location ----- */
+        /* ----- CONTACT PAGE ----- */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -926,37 +926,46 @@
             max-width: 620px;
             line-height: 1.6;
         }
-        .now-block .now-footer {
-            margin-top: 18px;
+
+        /* --- NEW MOTTO STYLES (Horizontal layout) --- */
+        .now-motto {
             display: flex;
-            align-items: center;
-            gap: 16px;
+            justify-content: space-between;
+            align-items: baseline;
             flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
         }
-        .now-block .now-footer .badge {
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .6rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--archive-green);
-            border: 1px solid var(--archive-green);
-            padding: 4px 12px;
-            border-radius: 20px;
+        .now-motto .motto-text {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 480;
+            letter-spacing: 0.02em;
+            color: var(--ink);
         }
-        .now-block .now-footer .attribution {
+        .now-motto .motto-text .highlight {
+            color: var(--cinnabar);
+            font-weight: 600;
+        }
+        .now-motto .motto-attribution {
             font-family: 'Spline Sans Mono', monospace;
             font-size: .7rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
             color: var(--ink-soft);
-            letter-spacing: .02em;
+            opacity: 0.8;
         }
-        .now-block .now-footer .attribution a {
-            color: var(--cinnabar);
+        .now-motto .motto-attribution a {
+            color: var(--ink-soft);
             text-decoration: underline;
             text-underline-offset: 2px;
         }
-        .now-block .now-footer .attribution a:hover {
-            opacity: 0.7;
+        .now-motto .motto-attribution a:hover {
+            color: var(--cinnabar);
+            opacity: 1;
         }
+
         [data-theme="dark"] .now-block {
             border-color: var(--line);
         }
@@ -964,7 +973,7 @@
             border-color: var(--cinnabar);
         }
 
-        /* ----- Full CV specific styles ----- */
+        /* Full CV specific styles */
         .cv-contact-details {
             display: flex;
             flex-wrap: wrap;
@@ -1133,14 +1142,16 @@
                     <div class="now-block">
                         <div class="now-quote">
                             <span class="accent-char">“</span>
-                            The world is shaped not only by those who hold power,but by those who <span class="highlight">understand</span> it.
+                            The world is shaped not only by those who hold power, but by those who <span class="highlight">understand</span> it.
                         </div>
                         <div class="now-body">
                             Research is the discipline of uncovering how institutions, ideas and interests shape political decisions long before their consequences become visible.
                         </div>
-                        <div class="now-footer">
-                            <span class="badge">Knowledge is power</span>
-                            <span class="attribution">— <a href="#" onclick="event.preventDefault();">Francis Bacon</a></span>
+                        
+                        <!-- NEW HORIZONTAL MOTTO -->
+                        <div class="now-motto">
+                            <span class="motto-text">Knowledge is <span class="highlight">Power</span></span>
+                            <span class="motto-attribution">— <a href="#" onclick="event.preventDefault();">Francis Bacon</a></span>
                         </div>
                     </div>
                 </section>
@@ -1663,7 +1674,7 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- FULL CV PAGE – updated with the provided content -->
+            <!-- FULL CV PAGE -->
             <!-- ============================================================ -->
             <div class="page" id="page-full-cv">
                 <header class="pagehead">
