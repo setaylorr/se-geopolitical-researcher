@@ -97,16 +97,17 @@
         .brand .name {
             font-family: 'Fraunces', serif;
             font-weight: 600;
-            font-size: 1.25rem;
-            letter-spacing: .01em;
+            font-size: 2.5rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
         }
         .brand .role {
             font-family: 'Spline Sans Mono', monospace;
-            font-size: .68rem;
+            font-size: 1.0rem;
             color: var(--ink-soft);
-            margin-top: 4px;
+            margin-top: 6px;
             text-transform: uppercase;
-            letter-spacing: .08em;
+            letter-spacing: 0.12em;
         }
         .navlist {
             list-style: none;
@@ -1209,6 +1210,24 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
+
+        /* ----- BIGGER BRAND ADJUSTMENTS ----- */
+        @media (max-width: 860px) {
+            .brand .name {
+                font-size: 1.6rem;
+            }
+            .brand .role {
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .brand .name {
+                font-size: 1.4rem;
+            }
+            .brand .role {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1243,16 +1262,16 @@
                     <p class="sub">Independent researcher working on institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg.</p>
                     <div class="hero-meta">
                         <div>Focus<strong>Africa | Diplomacy | International Relations | China-Africa</strong></div>
-                        
-                       
+
+
                     </div>
-                   
+
                 </header>
 
                 <section class="block">
                     <h2>Selected work</h2>
                     <div class="cardlist">
-                        
+
                         <a class="card" href="#/sahel" style="text-decoration:none">
                             <span class="ref"></span>
                             <span>
@@ -1264,13 +1283,13 @@
                                 <h3>Freedom of information Casework</h3>
                                 <span class="desc">A self-directed case in applied administrative law, argued without representation across three procedural stages.</span>
                             </span>
-                            
-                           
+
+
                         </a>
                         <a class="card" href="#/sahel" style="text-decoration:none">
                             <span class="ref"></span>
-                            
-                            
+
+
                         </a>
                         <a class="card" href="#/chronology" style="text-decoration:none">
                             <span class="ref"></span>
@@ -1278,7 +1297,7 @@
                                 <h3>Russia Ukraine diplomatic chronology</h3>
                                 <span class="desc">Multilingual reconstruction of negotiation timelines from primary and open sources, 2023 to 2025.</span>
                             </span>
-                            
+
                         </a>
                     </div>
                 </section>
@@ -1308,7 +1327,7 @@
                         <div class="fileref">Biography</div>
                         <h1>About</h1>
                     </div>
-                   
+
                 </header>
 
                 <section class="block about-body" style="border-bottom: none; padding-bottom: 0;">
@@ -1348,7 +1367,7 @@
                             I work primarily with <strong class="emphasis">records</strong>.
                         </p>
                         <p>
-My work combines documentary research, open-source investigation and political analysis to examine institutions, diplomacy and international affairs. Rather than relying on commentary, I prioritise primary sources, historical context and verifiable evidence.                        </p>
+                            My work combines documentary research, open-source investigation and political analysis to examine institutions, diplomacy and international affairs. Rather than relying on commentary, I prioritise primary sources, historical context and verifiable evidence.                        </p>
                         <div class="about-approach-grid">
                             <span class="item">Government documents</span>
                             <span class="item">Diplomatic correspondence</span>
@@ -1389,7 +1408,7 @@ My work combines documentary research, open-source investigation and political a
                         <div class="fileref">Published and working papers</div>
                         <h1>Writing</h1>
                     </div>
-                   
+
                 </header>
 
                 <section class="block">
@@ -1400,7 +1419,7 @@ My work combines documentary research, open-source investigation and political a
                                 <h3>The China dependence paradox in Zimbabwe's minerals policy</h3>
                                 <span class="desc">Why sequencing, not resource endowment, is Zimbabwe's key strategic advantage. 2026, working paper.</span>
                             </span>
-                            
+
                         </a>
                         <a class="card searchable" href="#/foi-essay" style="text-decoration:none">
                             <span class="ref">W/02</span>
@@ -1408,7 +1427,7 @@ My work combines documentary research, open-source investigation and political a
                                 <h3>What an FOI refusal teaches you about the state</h3>
                                 <span class="desc">Notes on exemption reasoning and the public interest test from inside a live tribunal appeal. 2025, essay.</span>
                             </span>
-                            
+
                         </a>
                         <a class="card searchable" href="#/kyiv-record" style="text-decoration:none">
                             <span class="ref">W/03</span>
@@ -1416,9 +1435,9 @@ My work combines documentary research, open-source investigation and political a
                                 <h3>Reading the April 2022 Kyiv record</h3>
                                 <span class="desc">A sourcing note on the diplomatic chronology around early Russia Ukraine negotiations. 2025, research note.</span>
                             </span>
-                            
+
                         </a>
-                        
+
                     </div>
                 </section>
             </div>
@@ -1430,7 +1449,7 @@ My work combines documentary research, open-source investigation and political a
                         <div class="fileref">Active and completed</div>
                         <h1>Projects</h1>
                     </div>
-                   
+
                 </header>
 
                 <section class="block">
@@ -1469,15 +1488,15 @@ My work combines documentary research, open-source investigation and political a
 
                 <section class="block">
                     <h2>Experience</h2>
-                                        <div class="cvrow"><span class="k">2023 to 2025</span><span class="v"><strong>Research assistant, Listening to the Other Side</strong><span class="sub">Russia Ukraine diplomatic chronologies, multilingual OSINT, multimedia research outputs.</span></span></div>
+                    <div class="cvrow"><span class="k">2023 to 2025</span><span class="v"><strong>Research assistant, Listening to the Other Side</strong><span class="sub">Russia Ukraine diplomatic chronologies, multilingual OSINT, multimedia research outputs.</span></span></div>
 
                     <div class="cvrow"><span class="k">2026 to now</span><span class="v"><strong>Administrator, Ntuli Foundation</strong><span class="sub">Board coordination, professional communications and drafting.</span></span></div>
                 </section>
 
                 <section class="block">
                     <h2>Project</h2>
-                                        <div class="cvrow"><span class="k">2023 to now</span><span class="v"><strong>FOIA request, internal review, ICO complaint and tribunal appeal</strong><span class="sub">Applied administrative law and institutional reasoning across seven engaged exemptions, self-represented.</span></span></div>
-                   <!-- <div class="cvrow"><span class="k">2025 to now</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Africa China consulting and intelligence platform, early stage.</span></span></div>-->
+                    <div class="cvrow"><span class="k">2023 to now</span><span class="v"><strong>FOIA request, internal review, ICO complaint and tribunal appeal</strong><span class="sub">Applied administrative law and institutional reasoning across seven engaged exemptions, self-represented.</span></span></div>
+                    <!-- <div class="cvrow"><span class="k">2025 to now</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Africa China consulting and intelligence platform, early stage.</span></span></div>-->
                 </section>
 
                 <section class="block">
@@ -1510,9 +1529,9 @@ My work combines documentary research, open-source investigation and political a
                                 <span class="desc">Se is a fantastic researcher, and supportive colleague. She is extremely skilled at finding information, books, and websites, that you would otherwise spend hours scouring the internet for! Se guided me through the organization when I joined, and always went the extra mile to help others with their tasks. She has a brilliant knowledge on international relations and global conflicts.</span>
                             </span>
                         </div>
-                        
+
                     </div>
-                    
+
                     <!-- Buttons to full pages -->
                     <div style="margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap;">
                         <a href="#/full-cv" class="btn">View Full CV</a>
@@ -2052,7 +2071,7 @@ My work combines documentary research, open-source investigation and political a
                                     <div class="social-links">
                                         <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://linkedin.com/in/se-taylor-32a366285'; return false;">LinkedIn</a>
                                         <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://x.com/taylorse?s=11'; return false;">Twitter</a>
-                                      <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://substack.com/@setaylorr'; return false;">Substack</a>
+                                        <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://substack.com/@setaylorr'; return false;">Substack</a>
                                     </div>
                                 </div>
                             </div>
