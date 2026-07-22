@@ -813,6 +813,104 @@
         .letter-body a:hover {
             opacity: 0.7;
         }
+
+        /* full cv header block */
+        .cv-header {
+            padding: 20px 0 10px;
+        }
+        .cv-header h2.cv-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+        }
+        .cv-header .cv-role {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--cinnabar);
+            margin-bottom: 10px;
+        }
+        .cv-header .cv-contactline {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .78rem;
+            color: var(--ink-soft);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+        }
+        .cv-header .cv-contactline span:not(:last-child)::after {
+            content: "·";
+            margin-left: 10px;
+            color: var(--line);
+        }
+        .cv-block h3.cv-role-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        .cv-block .cv-role-meta {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--ink-soft);
+            margin: 3px 0 10px;
+        }
+        .cv-block ul.cv-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px 0;
+        }
+        .cv-block ul.cv-bullets li {
+            position: relative;
+            padding: 5px 0 5px 20px;
+            font-size: .92rem;
+            color: var(--ink-soft);
+        }
+        .cv-block ul.cv-bullets li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--cinnabar);
+        }
+        .cv-skill-group {
+            margin-bottom: 14px;
+        }
+        .cv-skill-group .cv-skill-label {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--cinnabar);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .cv-skill-group .cv-skill-text {
+            font-size: .9rem;
+            color: var(--ink-soft);
+        }
+        .focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .focus-tags span {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .68rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--archive-green);
+            border: 1px solid var(--archive-green);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -1421,35 +1519,76 @@
                 </header>
                 <a class="back-link" href="#/cv">← Back to CV</a>
 
-                <section class="block">
+                <section class="block cv-header">
+                    <h2 class="cv-name">Se Taylor</h2>
+                    <div class="cv-role">Geopolitical Researcher · Remote</div>
+                    <div class="cv-contactline">
+                        <span>South Africa (remote)</span>
+                        <span>+27 61 813 1717</span>
+                        <span>se@setaylorr.com</span>
+                        <span>linkedin.com/in/se-taylor-32a366285</span>
+                    </div>
+                </section>
+
+                <section class="block cv-block">
+                    <h2>Profile</h2>
+                    <p class="lede" style="font-size:1rem;">Geopolitical researcher with a background in International Relations and experience conducting independent investigative research into government transparency, international diplomacy, and conflict dynamics. Skilled at reconstructing complex event sequences from fragmented and multilingual sources, applying open-source intelligence methods, and producing evidence-based analysis. Particular focus on Africa-China relations, governance and accountability, and the strategic dynamics shaping the Global South.</p>
+                </section>
+
+                <section class="block cv-block">
                     <h2>Experience</h2>
-                    <div class="cvrow"><span class="k">2025 – Present</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Building a consulting and intelligence platform on Africa China relations. Developing foundational research capacity, network building, and Mandarin language study.</span></span></div>
-                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>Administrator, Ntuli Foundation</strong><span class="sub">Board coordination, professional communications, and strategic drafting for a non-profit focused on institutional development.</span></span></div>
-                    <div class="cvrow"><span class="k">2023 – 2025</span><span class="v"><strong>Research Assistant, Listening to the Other Side</strong><span class="sub">Multilingual OSINT and chronology reconstruction of Russia Ukraine diplomatic negotiations. Produced interactive timelines and analytical reports for media and academic use.</span></span></div>
+
+                    <h3 class="cv-role-title">Independent Investigative Research Project</h3>
+                    <div class="cv-role-meta">UK Cabinet Office — Freedom of Information Tribunal matter · 2023 – present</div>
+                    <ul class="cv-bullets">
+                        <li>Conducted a three-year and ongoing Freedom of Information (FOI) investigation involving the UK Cabinet Office, seeking disclosure of government records relating to a high-level diplomatic engagement during an ongoing armed conflict.</li>
+                        <li>Independently navigated all three stages of the statutory process — Internal Review, the Information Commissioner's Office, and the First-Tier Tribunal, drafting all legal submissions, procedural correspondence, and grounds of appeal submitted to two public institutions without legal representation.</li>
+                        <li>Evaluated legal and procedural questions relating to government transparency, statutory disclosure obligations, and exemptions under the UK Freedom of Information Act 2000.</li>
+                    </ul>
+
+                    <h3 class="cv-role-title">Geopolitics Research Assistant</h3>
+                    <div class="cv-role-meta">Listening to the Other Side · 2023 – 2025</div>
+                    <ul class="cv-bullets">
+                        <li>Reconstructed detailed diplomatic timelines by identifying, verifying, and synthesising fragmented information from multilingual media, official statements, open-source intelligence, and government publications.</li>
+                        <li>Conducted over two years of geopolitical research supporting investigative work and ten editorial projects on international diplomacy, armed conflict, and under-reported political developments spanning several decades.</li>
+                        <li>Tracked bilateral and multilateral diplomatic developments, identifying geopolitical, security, and foreign policy trends affecting international relations.</li>
+                        <li>Produced and narrated analytical briefings interpreting the public statements of world leaders, including President Vladimir Putin, for research and public understanding.</li>
+                    </ul>
                 </section>
 
-                <section class="block">
-                    <h2>Casework</h2>
-                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>FOIA Request &amp; Tribunal Appeal</strong><span class="sub">Self‑represented progression through internal review, ICO complaint, and First‑tier Tribunal. Engaged with exemptions including ss.23, 24, 26, 27, 35, 38, and 40 FOIA.</span></span></div>
-                </section>
-
-                <section class="block">
+                <section class="block cv-block">
                     <h2>Education</h2>
-                    <div class="cvrow"><span class="k">2019 – 2023</span><span class="v"><strong>BA International Relations, Stellenbosch University</strong><span class="sub">Focus on institutional accountability, East‑West geopolitics, and international law.</span></span></div>
-                    <div class="cvrow"><span class="k">Ongoing</span><span class="v"><strong>Self‑directed Study</strong><span class="sub">Mandarin Chinese, China‑Africa economic history, and information rights law.</span></span></div>
+                    <h3 class="cv-role-title">BA International Relations</h3>
+                    <div class="cv-role-meta">Stellenbosch University · 2019 – 2022</div>
+                    <p class="small muted">Focus: International security, conflict analysis, governance, and Africa-China relations.</p>
                 </section>
 
-                <section class="block">
-                    <h2>Skills &amp; Expertise</h2>
-                    <div class="skill-grid">
-                        <div class="skill-item">OSINT &amp; Open Source Research</div>
-                        <div class="skill-item">Legal Research (FOIA / GDPR)</div>
-                        <div class="skill-item">Political Risk Analysis</div>
-                        <div class="skill-item">Multilingual Sourcing (RU, UK, FR)</div>
-                        <div class="skill-item">Chronology Construction</div>
-                        <div class="skill-item">Administrative Law</div>
-                        <div class="skill-item">Data Verification &amp; Cross‑referencing</div>
-                        <div class="skill-item">Mandarin Chinese (Beginner)</div>
+                <section class="block cv-block">
+                    <h2>Skills</h2>
+                    <div class="cv-skill-group">
+                        <span class="cv-skill-label">Research &amp; intelligence</span>
+                        <span class="cv-skill-text">Open-source intelligence (OSINT); source verification; chronology reconstruction and conflict tracking; multilingual research synthesis; comparative analysis.</span>
+                    </div>
+                    <div class="cv-skill-group">
+                        <span class="cv-skill-label">Documents &amp; disclosure</span>
+                        <span class="cv-skill-text">Government document analysis; Freedom of Information requests, appeals, and tribunal submissions; procedural correspondence with public bodies.</span>
+                    </div>
+                    <div class="cv-skill-group">
+                        <span class="cv-skill-label">Languages</span>
+                        <span class="cv-skill-text">English (native), isiZulu (native), Mandarin (study in progress).</span>
+                    </div>
+                </section>
+
+                <section class="block cv-block">
+                    <h2>Areas of focus</h2>
+                    <div class="focus-tags">
+                        <span>Africa–China relations</span>
+                        <span>Geopolitical analysis</span>
+                        <span>International security</span>
+                        <span>OSINT</span>
+                        <span>Government transparency</span>
+                        <span>Policy analysis</span>
+                        <span>Governance in the Global South</span>
                     </div>
                 </section>
             </div>
