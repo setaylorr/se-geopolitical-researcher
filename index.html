@@ -756,6 +756,18 @@
             padding: 6px 0;
             border-bottom: 1px dotted var(--line);
         }
+        .sahel-refs li a {
+            color: var(--cinnabar);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            word-break: break-all;
+        }
+        .sahel-refs li a:hover {
+            opacity: 0.7;
+        }
+        .sahel-refs li:last-child {
+            border-bottom: 0;
+        }
 
         /* full cv / recs specific */
         .skill-grid {
@@ -1228,6 +1240,19 @@
                 font-size: 0.7rem;
             }
         }
+
+        /* sahel-specific quote styling */
+        .sahel-quote {
+            border-left: 3px solid var(--cinnabar);
+            padding-left: 20px;
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--ink-soft);
+        }
+        .sahel-quote strong {
+            color: var(--ink);
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -1259,13 +1284,10 @@
             <div class="page" id="page-home">
                 <header class="hero">
                     <h1>studying<br />people,<br /><span class="accent">power</span><br />and conflicts</h1>
-                    <p class="sub">Independent researcher working on institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg.</p>
+                    <p class="sub">Geopolitcal researcher in interested institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg, South Africa.</p>
                     <div class="hero-meta">
                         <div>Focus<strong>Africa | Diplomacy | International Relations | China-Africa</strong></div>
-
-
                     </div>
-
                 </header>
 
                 <section class="block">
@@ -1275,29 +1297,25 @@
                         <a class="card" href="#/sahel" style="text-decoration:none">
                             <span class="ref"></span>
                             <span>
-                                <h3>Political Risks Facing Chinese Mining Investments in the Sahel</h3>
+                                <h3>Risks Facing Chinese Mining Companies in the Sahel</h3>
                                 <span class="desc">An assessment of the political, security, and operational risks affecting Chinese mining companies operating across the Sahel, with particular attention to military coups, resource nationalism, insurgent violence, and changing geopolitical dynamics.</span>
-                            </span><a class="card" href="#/foi" style="text-decoration:none">
+                            </span>
+                        </a>
+
+                        <a class="card" href="#/foi" style="text-decoration:none">
                             <span class="ref"></span>
                             <span>
                                 <h3>Freedom of information Casework</h3>
                                 <span class="desc">A self-directed case in applied administrative law, argued without representation across three procedural stages.</span>
                             </span>
-
-
                         </a>
-                        <a class="card" href="#/sahel" style="text-decoration:none">
-                            <span class="ref"></span>
 
-
-                        </a>
                         <a class="card" href="#/chronology" style="text-decoration:none">
                             <span class="ref"></span>
                             <span>
                                 <h3>Russia Ukraine diplomatic chronology</h3>
                                 <span class="desc">Multilingual reconstruction of negotiation timelines from primary and open sources, 2023 to 2025.</span>
                             </span>
-
                         </a>
                     </div>
                 </section>
@@ -1557,19 +1575,19 @@
                 <section class="block">
                     <h2>Overview</h2>
                     <p class="lede">A self‑directed FOIA case that progressed through internal review, ICO complaint, and ultimately to the First‑tier Tribunal, argued without legal representation.</p>
-                    <p>The request sought records of the 9 April 2022 Kyiv visit. The Cabinet Office refused, relying on a combination of national security, international relations, and law enforcement exemptions. This case provided a ground‑level view of how the UK’s information rights system operates in practice.</p>
+                    <p>The request sought records of the 9 April 2022 Kyiv visit. The Cabinet Office refused, relying on a combination of national security, international relations, and law enforcement exemptions. This case provided a ground‑level view of how the UK's information rights system operates in practice.</p>
                 </section>
                 <section class="block">
                     <h2>Procedural history</h2>
                     <ul class="timeline">
                         <li><div class="when">2023</div><div class="what">Initial request &amp; refusal</div><div class="note">Request submitted; refused by Cabinet Office citing ss.23, 24, 26, 27, 35, 38 and 40.</div></li>
-                        <li><div class="when">2024</div><div class="what">Internal review &amp; ICO complaint</div><div class="note">Internal review upheld the refusal; complaint filed with the Information Commissioner’s Office.</div></li>
+                        <li><div class="when">2024</div><div class="what">Internal review &amp; ICO complaint</div><div class="note">Internal review upheld the refusal; complaint filed with the Information Commissioner's Office.</div></li>
                         <li><div class="when">2025</div><div class="what">First‑tier Tribunal appeal</div><div class="note">Appeal lodged, grounds prepared without counsel. Tribunal stage ongoing.</div></li>
                     </ul>
                 </section>
                 <section class="block">
                     <h2>Key lessons</h2>
-                    <p>The case highlighted the tension between the public interest test and the government’s broad interpretation of national security exemptions. It also demonstrated the procedural challenges faced by individual applicants navigating the tribunal system without legal support.</p>
+                    <p>The case highlighted the tension between the public interest test and the government's broad interpretation of national security exemptions. It also demonstrated the procedural challenges faced by individual applicants navigating the tribunal system without legal support.</p>
                     <p>This work continues to inform my understanding of institutional transparency and the limits of disclosure regimes.</p>
                 </section>
             </div>
@@ -1824,48 +1842,87 @@
                 </section>
             </div>
 
-            <!-- ===== SAHEL PAPER ===== -->
+            <!-- ============================================================ -->
+            <!-- SAHEL PAPER — REPLACED WITH NEW CONTENT                        -->
+            <!-- ============================================================ -->
             <div class="page" id="page-sahel">
                 <header class="pagehead">
                     <div>
                         <div class="fileref">File / Working paper</div>
-                        <h1>Risks Facing Chinese Mining Investments in Africa</h1>
+                        <h1>Risks Facing Chinese Mining Companies in the Sahel</h1>
                     </div>
                     <span class="stamp">Working<br />paper</span>
                 </header>
                 <a class="back-link" href="#/home">← Back to portfolio</a>
                 <p class="sahel-sub" style="margin-top:10px;">By Se Taylor • Geopolitical Risk Analysis • 2026</p>
+
+                <!-- Introduction -->
                 <section class="block">
                     <h2>Introduction</h2>
-                    <p>China's engagement in the Sahel demonstrates a high tolerance for political and security risk. Chinese mining companies have become major players in the region's gold, uranium, and lithium sectors, often operating in fragile states where Western firms have scaled back. This paper examines the specific political, security, and operational risks that shape the investment environment for Chinese mining capital in the Sahel, with a focus on Mali, Niger, and Burkina Faso.</p>
+                    <p>China's engagement in the Sahel demonstrates its high tolerance for political and security risks, driven first and foremost by what this region of Africa can supply. Beijing views the Sahel as strategically important because of its large reserves of critical minerals and energy resources. These include lithium, uranium, petroleum, gold, and other strategic minerals used for electric vehicles, renewable energy technologies, advanced manufacturing, and long-term energy security. Rather than relying solely on the international markets, Beijing has sought to secure direct access to these resources through long-term mining investments and the construction of infrastructure under the Belt and Road Initiative (BRI).</p>
+                    <p>However, the environment China has chosen to invest in is increasingly unstable. Military coups and violent extremist insurgencies have weakened African state institutions and fostered the growth of jihadist and criminal networks, driving up the political, security, and operational risks for Chinese mining investments. In their article <a Western Withdrawal, Jihadist Expansion: How the Sahel Became Ground Zero for Global Terrorism"</a> War on the Rocks reports that the expulsion of Western forces from countries in the region has created a security vacuum that has worsened these risks, raising the threat to infrastructure, transport corridors, and Chinese personnel.</p>
                 </section>
+
+                <!-- Strategic Context -->
                 <section class="block">
                     <h2>Strategic Context</h2>
-                    <p>Beijing's strategic interest in the Sahel is driven by critical mineral demand, the Belt and Road Initiative's expansion into West Africa, and a desire to secure alternative supply chains outside of traditional Western-dominated markets. However, the region's recent wave of military coups—Mali (2020, 2021), Burkina Faso (2022), and Niger (2023)—has upended existing bilateral agreements, creating a volatile regulatory environment. Chinese state-owned enterprises (SOEs) and private firms alike must navigate shifting alliances, local hostility, and the growing influence of Russian mercenary groups.</p>
+                    <p>For decades, minerals were extracted and exported from the African continent with little economic benefit for the countries they came from. Under the banner of resource nationalism, African governments are now seeking greater control over their resources and are keen to keep more stages of mineral processing and manufacturing at home.</p>
+                    <p>To realise those ambitions, they have introduced, or are considering, export restrictions on unprocessed and critical minerals; local processing requirements such as Mali's Local Content Law which requires international firms to source parts, logistics, and labour from Malian-owned businesses; and the renegotiation of mining contracts, as seen in Burkina Faso, where the state has moved to block multinational companies from retaining sole ownership of national mineral revenues.</p>
+                    <p>The wave of coups since 2020 has seen the expulsion and evacuation of French and United States forces, and United Nations peacekeeping missions, driving the Sahel's pivot toward China. This has enabled China to position itself strategically as a powerful alternative to traditional Western powers, offering engagement through institutions like the Global Security Initiative (GSI) and the Forum on China-Africa Cooperation (FOCAC).</p>
+                    <p>Chinese companies have capitalized on the shifting political and economic landscape by expanding investment in gold, lithium, and uranium projects, often with the support of military-led governments. For many of these governments, particularly those led by military juntas, Chinese investors provide an important source of revenue at a time of political uncertainty, security threats, and international isolation. Backed by state-owned banks, Chinese companies are willing to invest in politically unstable regions where Western countries are hesitant to operate. Furthermore, China's policy of non-interference lets it deal directly with central governments and ruling elites to access critical minerals. The arrangement is a mutually beneficial one, helping China to secure natural resources and the Sahel to secure foreign funding and military aid.</p>
                 </section>
+
+                <!-- Political Risks -->
                 <section class="block">
                     <h2>Political Risks</h2>
-                    <p>Political risk is the most immediate threat to Chinese mining operations. Successive military juntas have renegotiated or threatened to revoke mining concessions, often citing "resource sovereignty" and demanding higher royalties or local ownership stakes. In Niger, the 2023 coup led to the suspension of uranium exports to France, but Chinese firms have been largely spared—so far. However, the precedent of contract renegotiation has introduced uncertainty. Bilateral investment treaties are inconsistently respected, and arbitration mechanisms are weak. Chinese firms often rely on diplomatic channels rather than legal recourse, a strategy that is effective but slow.</p>
+                    <p>Political instability is the principal source of uncertainty for Chinese mining investments in the Sahel. As indicated above, recent coups in the region have weakened state institutions, deteriorated the regional security environment, and encouraged resource nationalism, creating greater uncertainty for foreign mining and resource investments across the region.</p>
+                    <p>China's long-standing policy of political non-interference has given it a competitive advantage over Western countries in the extraction of natural resources. Yet the repeated coups have disrupted that engagement, altering the regulatory framework and raising the risk of dissolution of existing contracts, as well as resulting in a demand for higher royalties and resource nationalism. The risk for Chinese mining companies is the increase in state-ownership, shifts in local processing requirements, including requiring the host country's government to hold a certain percentage of shares in the mining projects free of charge, and contract renegotiations. As such, Chinese mining companies are struggling to cope with the pace of due diligence and management changes. Even without military coups, Chinese mining companies face formidable political risks. Changes in leadership in major mineral-producing countries are often accompanied by significant shifts in mining and resource policy, which harm their interests and weaken investor confidence.</p>
                 </section>
+
+                <!-- Security Risks -->
                 <section class="block">
                     <h2>Security Risks</h2>
-                    <p>The Sahel is the epicentre of a sprawling insurgency linked to al-Qaeda and the Islamic State. Armed groups frequently target mining sites for extortion, kidnapping, and sabotage. Chinese workers and expatriate staff are increasingly vulnerable; in 2024, there were multiple incidents involving Chinese convoys near Ouagadougou. State security forces are overstretched and sometimes complicit in informal taxation. The withdrawal of French and UN peacekeeping forces from Mali has left a security vacuum that Chinese operations are ill-equipped to fill without significant private military contracts—a politically sensitive option.</p>
+                    <p>The evacuation of Western forces marks a symbolic end to Europe's post-colonial security dominance in the Sahel. With the closing down of drone bases and the reduction of aid programs, fragile states are left scrambling for alternatives to combat militants who control vast rural territories.</p>
+                    <p>China's security engagement with Africa is not new. Beijing has engaged in security matters on the continent through institutions like the Global Security Initiative (GSI) and the Forum on China-Africa Cooperation (FOCAC), and has helped combat insurgencies and armed groups, providing millions of dollars in military equipment, intelligence sharing, and humanitarian aid. In 2025, Burkina Faso received shipments of Chinese-manufactured military equipment as part of a broader effort to strengthen the government's armed forces amid a persistent insurgent threat. China's approach to security is driven by the need to defend its economic stability, commercial initiatives, and the rising number of Chinese workers present in the region.</p>
+                    <p>The result of the region's instability is that the central Sahel is now one of the most active conflict zones, leaving mining sites, access roads, and supply convoys directly exposed. China's existing economically driven, non-interference approach is arguably not enough to secure its interests, as militants are now specifically targeting Chinese-run and Chinese-operated mines and the energy, extraction, and transport infrastructure around them. Chinese nationals have been abducted in mine-related attacks and killed in militia attacks elsewhere, and firms deploying large numbers of expatriate staff present a high-value target. According to 2025 data compiled by the conflict monitor Armed Conflict Location &amp; Event Data (ACLED), Chinese workers suffered the majority of foreign abductions in Africa: of 89 foreigners kidnapped that year, 38 held Chinese passports. The British Broadcasting Corporation (BBC) Monitoring found that around 70% of kidnapping cases across the continent occurred in Mali and neighboring Niger, where many Chinese nationals work in the gold-rich mines.</p>
                 </section>
+
+                <!-- Operational Risks -->
                 <section class="block">
                     <h2>Operational Risks</h2>
-                    <p>Operational risks include logistical bottlenecks (ports, roads, and rail), unreliable electricity supply, and a shortage of skilled local labour. Corruption and opaque procurement processes inflate costs and delay project timelines. Environmental regulations, where they exist, are weakly enforced, but this can backfire when local communities mobilise against pollution or land-use changes. Chinese firms have also faced difficulties with repatriating profits due to foreign exchange controls and sanctions (e.g., Niger and Mali are subject to limited EU/US restrictions).</p>
+                    <p>Supply chain disruption is the biggest day-to-day risk for Chinese mines. According to Africa Defense Forum (ADF), jihadist groups systematically target Chinese mining operations, setting up chokepoints to fund insurgency rather than seizing goods. The high kidnapping rate of Chinese personnel compounds the problem, halting operations and forcing Chinese embassies to issue urgent evacuation orders for high-risk zones.</p>
+                    <p>The geography of some countries makes things worse. Landlocked regions depend on long transport corridors through insecure territory, which leads to delayed mineral exports and raises transportation costs, against a backdrop of weak transport and communication infrastructure. Insurgents target heavy machinery and attack corridors used to extract resources. Diesel-intensive mines are also facing fuel blockades, with jihadist groups attacking tankers and bombing nearby pipelines, as seen with the Niger-Benin pipeline. The result has been acute shortages and cuts to diesel-generated power, while army-imposed movement restrictions and convoy attacks add further fragility. Border closures following political crises deepen Chinese mines' dependence on the political stability of transit countries. In order to survive in conflict zones, operational costs are soaring, as companies are forced to hire private security teams to protect their daily perimeters.</p>
                 </section>
+
+                <!-- Strategic Assessment -->
                 <section class="block">
                     <h2>Strategic Assessment</h2>
-                    <p>Chinese mining investments in the Sahel are not at immediate risk of collapse, but they operate in a high-risk, low-resilience environment. The key variables to watch are (1) the trajectory of military rule and its willingness to uphold existing contracts, (2) the intensity of insurgent violence near key mine sites, and (3) the degree of Chinese diplomatic engagement versus reliance on local proxies. Beijing is likely to adopt a flexible, case-by-case approach, accepting higher risk in exchange for exclusive access to strategic minerals. For investors and analysts, the Sahel remains a frontier market where political intelligence is as valuable as geological surveys.</p>
+                    <p>China's engagement with Africa rests on the policy of non-interference, which stems from its "Five Principles of Peaceful Coexistence" introduced in 1953. These principles are strictly against interference in national politics and insist on respect for territorial sovereignty and integrity.</p>
+                    <p>In the Sahel, however, non-interference is failing to protect Chinese mining companies and investments. Beijing prioritizes support for and communication with central governments and military juntas over engagement with local leaders who might address grassroots governance failures, poverty, and local grievances that drive the region's insurgencies. This leaves China backing weak regimes without the ability to improve security or reforms, exposing Chinese mining companies to ongoing uncertainty.</p>
+                    <p>As Chinese investments become increasingly concentrated in politically unstable regions, Beijing faces mounting expectations to protect its citizens, commercial assets, and strategic supply chains. This presents China with a broader geopolitical dilemma. Protecting its citizens and investments may require Beijing to take a more active role in regional security through peacekeeping, security cooperation, intelligence sharing, or other forms of engagement. Yet a greater involvement risks undermining the very policy of non-interference that has been central to China's engagement with Africa.</p>
+                    <p>To protect its investment and citizens, China will have to reanalyze this policy, deciding whether to hold on to the position that has made it a favorable partner for military-led governments or succumb to the regional pressures to abandon it.</p>
+                    <p>The core dynamic remains a high-reward, high-risk trade. The assets are strategic, but the environment of unstable juntas, aggressive resource nationalism, and a spreading insurgency is creating considerable risk to personnel, assets, and operations.</p>
                 </section>
-                <section class="block">
+
+                <!-- References -->
+                <section class="block" style="border-bottom:0;">
                     <h2>References</h2>
                     <ul class="sahel-refs">
-                        <li>ECFR, "Chinese Mining in the Sahel: Risk and Resilience" (2025)</li>
-                        <li>Reuters, "Niger coup disrupts uranium supply but Chinese miners stay" (2024)</li>
-                        <li>War on the Rocks, "The Sahel's New Great Game" (2025)</li>
-                        <li>BBC, "Mali miners caught between jihadists and junta" (2024)</li>
+                        <li><a href="https://ecfr.eu/publication/from-ore-to-more-mineral-partnerships-for-african-industrialisation/" target="_blank">ECFR — From Ore to More: Mineral Partnerships for African Industrialisation</a></li>
+                        <li><a href="https://truthnigeria.com/2025/02/chinas-strategic-gambit-in-the-sahel-filling-the-void-left-by-the-west/" target="_blank">Truth Nigeria — China's Strategic Gambit in the Sahel: Filling the Void Left by the West</a></li>
+                        <li><a href="https://eastasiaforum.org/2026/03/12/policies-that-enable-chinas-critical-minerals-edge/" target="_blank">East Asia Forum — Policies That Enable China's Critical Minerals Edge</a></li>
+                        <li><a href="https://thediplomat.com/2025/11/chinas-sahel-gamble-falters-as-insurgencies-rage/" target="_blank">The Diplomat — China's Sahel Gamble Falters as Insurgencies Rage</a></li>
+                        <li><a href="https://www.reuters.com/world/africa/mali-arrests-niger-site-seizure-rattle-western-miners-2024-12-11/" target="_blank">Reuters — Mali arrests, Niger site seizure rattle Western miners</a></li>
+                        <li><a href="https://www.reuters.com/world/africa/niger-orders-three-chinese-oil-officials-out-country-sources-say-2025-03-14/" target="_blank">Reuters — Niger orders three Chinese oil officials out of country</a></li>
+                        <li><a href="https://www.reuters.com/sustainability/society-equity/jihadists-fuel-blockade-poses-biggest-threat-yet-malis-military-rulers-2025-11-03/" target="_blank">Reuters — Jihadists' fuel blockade poses biggest threat yet to Mali's military rulers</a></li>
+                        <li><a href="https://www.aljazeera.com/news/2025/11/6/is-mali-about-to-fall-to-al-qaeda-affiliate-jnim" target="_blank">Al Jazeera — Is Mali about to fall to al-Qaeda affiliate JNIM?</a></li>
+                        <li><a href="https://www.bbc.com/news/articles/c20e2lnvgpgo" target="_blank">BBC — Kidnapping of foreigners soars in Africa's lawless Sahel region</a></li>
+                        <li><a href="https://blogs.lse.ac.uk/africaatlse/2023/05/11/what-to-make-of-chinas-non-interference-policy-in-africa/" target="_blank">LSE — What to make of China's non-interference policy in Africa</a></li>
+                        <li><a href="https://warontherocks.com/western-withdrawal-jihadist-expansion-how-the-sahel-became-ground-zero-for-global-terrorism/" target="_blank">War on the Rocks — Western Withdrawal, Jihadist Expansion: How the Sahel Became Ground Zero for Global Terrorism</a></li>
+                        <li><a href="https://adf-magazine.com/2026/06/jnim-takes-aim-at-illegal-chinese-miners-in-mali/" target="_blank">Africa Defense Forum — JNIM takes aim at illegal Chinese miners in Mali</a></li>
+                        <li><a href="https://africacenter.org/spotlight/china-influence-africa-security-engagements/" target="_blank">Africa Center — China's Influence and Security Engagements in Africa</a></li>
+                        <li><a href="https://www.armyrecognition.com/archives/archives-land-defense/defense-news-army-2025/burkina-faso-acquires-long-range-mlrs-capability-with-chinese-sr5-for-the-first-time" target="_blank">Army Recognition — Burkina Faso acquires long-range MLRS capability with Chinese SR5</a></li>
+                        <li><a href="https://acleddata.com/media-citation/kidnapping-foreigners-soars-africas-lawless-sahel-region-bbc-news" target="_blank">ACLED — Kidnapping of foreigners soars in Africa's lawless Sahel region</a></li>
                     </ul>
                 </section>
             </div>
@@ -2089,7 +2146,7 @@
 
                     <!-- Centered CTA -->
                     <div class="contact-cta">
-                        <a href="mailto:se@setaylorr.com" class="btn">If you're intrigued, please reach out. </a>
+                        <a href="mailto:se@setaylorr.com" class="btn">If you're intrigued, please reach out.</a>
                     </div>
                 </section>
             </div>
