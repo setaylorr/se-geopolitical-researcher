@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Se Taylor — LinkedIn Banner (Meridian Ledger)</title>
+<!--
+  HOW TO EXPORT THIS AS THE ACTUAL PNG LINKEDIN NEEDS:
+  LinkedIn only accepts an image file, not HTML, so this page is for previewing
+  and fine-tuning before you capture it.
+
+  Easiest method:
+  1. Open this file in Chrome.
+  2. Open DevTools (F12), press Cmd/Ctrl+Shift+P, type "Capture node screenshot",
+     click the #stage element in the Elements panel first, then run the command.
+     This exports the #stage div at its exact 1584x396 pixel size.
+  Alternative: use any browser screenshot extension set to "capture element"
+  and select the #stage div.
+
+  The globe and orbit rings animate gently in the live preview. Any frame you
+  capture will look correct — the motion is designed so no single moment looks
+  "wrong," since the exported PNG will freeze on whatever frame you capture.
+-->
+<style>
+:root{
+  --paper:#F4EFE4; --paper-bot:#EDE6D8; --grid:#C6BAA5; --ink:#33291F;
+  --muted:#6E6151; --dim:#918470; --cinnabar:#96491F; --ochre:#6C5A28;
+}
+[data-theme="dark"]{
+  --paper:#1A1510; --paper-bot:#241C14; --grid:#3D332A; --ink:#EDE5DA;
+  --muted:#A3968A; --dim:#8A7C6D; --cinnabar:#D08C5A; --ochre:#B5A05F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#dcdcdc; min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:18px; padding:30px;
+  font-family:'IBM Plex Mono',monospace;
+}
+.controls{display:flex;gap:10px;align-items:center}
+.controls button{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  background:#fff; border:1px solid #bbb; padding:8px 16px; cursor:pointer; border-radius:4px;
+}
+.controls button:hover{border-color:#96491F;color:#96491F}
+.controls span{font-size:11px;color:#777}
+
+.stage-wrap{
+  width:100%; max-width:1584px; overflow-x:auto;
+  box-shadow:0 10px 40px rgba(0,0,0,.18);
+}
+#stage{
+  position:relative; width:1584px; height:396px; overflow:hidden;
+  background:linear-gradient(to bottom, var(--paper), var(--paper-bot));
+  transition:background .25s;
+}
+/* fine coordinate grid */
+#stage::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 46px);
+  opacity:.35;
+}
+
+/* TOP-LEFT COVERAGE PANEL */
+.top-monitor{
+  position:absolute; left:34px; top:26px; width:400px;
+  pointer-events:none; z-index:4;
+}
+.top-title{
+  font-size:15px; letter-spacing:.08em; color:var(--dim); text-transform:uppercase;
+  border-bottom:1px solid var(--grid); padding-bottom:6px; width:100%; opacity:0.8;
+}
+.top-content{
+  margin-top:8px; display:flex; flex-wrap:wrap; gap:12px;
+}
+.top-item{
+  font-size:12px; letter-spacing:.06em; color:var(--muted); text-transform:uppercase;
+  display:flex; align-items:center; gap:6px; white-space:nowrap;
+}
+.top-item::before{
+  content:"●"; color:var(--cinnabar); font-size:7px; opacity:0.8;
+}
+.top-sub{
+  margin-top:8px; font-size:10px; letter-spacing:.08em; color:var(--dim);
+  text-transform:uppercase; display:flex; gap:16px; flex-wrap:wrap;
+}
+.top-sub span{
+  display:flex; align-items:center; gap:6px;
+}
+.top-sub span::before{
+  content:"—"; color:var(--cinnabar); opacity:0.6;
+}
+
+/* corridor motif (single accent, left of centre — kept clear of the globe) */
+#stage svg.corridor{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+.route{fill:none; stroke:var(--cinnabar); stroke-width:2; stroke-dasharray:7 6; opacity:.55}
+.node{fill:var(--cinnabar); opacity:.9}
+.node-ring{fill:none; stroke:var(--cinnabar); stroke-width:1; opacity:.4}
+.coord{
+  position:absolute; top:60px; left:475px; font-size:12px; color:var(--dim); letter-spacing:.02em;
+}
+
+/* GLOBE — bled off the top-right corner so it never competes with the name */
+.globe-top-right{
+  position:absolute; top:-115px; right:-10px; width:260px; height:260px;
+  pointer-events:none; z-index:3;
+}
+.globe-top-right svg{ width:100%; height:100%; overflow:visible; }
+.orbit-a{ transform-origin:140px 140px; animation:spin-cw 46s linear infinite; }
+.orbit-b{ transform-origin:140px 140px; animation:spin-ccw 60s linear infinite; }
+.pulse{ animation:pulse 3.4s ease-in-out infinite; transform-origin:240px 90px; }
+@keyframes spin-cw{ from{transform:rotate(15deg)} to{transform:rotate(375deg)} }
+@keyframes spin-ccw{ from{transform:rotate(-30deg)} to{transform:rotate(-390deg)} }
+@keyframes pulse{ 0%,100%{opacity:.55; transform:scale(1)} 50%{opacity:.15; transform:scale(1.18)} }
+@media (prefers-reduced-motion: reduce){
+  .orbit-a,.orbit-b,.pulse{ animation:none; }
+}
+
+/* status marking, clear of the profile-photo safe zone */
+.classif{
+  position:absolute; bottom:30px; left:185px; font-size:10px; letter-spacing:.08em;
+  color:var(--dim); text-transform:uppercase; border:1px solid var(--dim); padding:4px 10px;
+  border-radius:2px; opacity:0.85;
+}
+
+/* primary text block, right-weighted, clear of profile-photo zone and globe */
+.textblock{
+  position:absolute; right:70px; top:150px; text-align:right;
+  display:flex; flex-direction:column; align-items:flex-end;
+}
+.name{
+  font-family:'Fraunces', serif; font-weight:600; font-size:100px;
+  line-height:1; color:var(--ink); white-space:nowrap;
+}
+.role{
+  font-size:21px; font-weight:700; letter-spacing:.1em; color:var(--cinnabar);
+  margin-top:8px; text-transform:uppercase;
+}
+.focus{
+  font-size:15px; letter-spacing:.05em; color:var(--muted); margin-top:12px;
+  text-transform:uppercase; white-space:nowrap;
+}
+.rule{
+  width:340px; height:1px; background:var(--grid); margin-top:16px; opacity:.8;
+}
+.tags{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; justify-content:flex-end;}
+.tag{
+  font-size:13px; letter-spacing:.06em; color:var(--cinnabar); border:1px solid var(--cinnabar);
+  border-radius:3px; padding:7px 14px; text-transform:uppercase; white-space:nowrap;
+}
+
+
+body.hide-guide .safezone{display:none}
+</style>
+</head>
+<body>
+
+
+  <div class="stage-wrap">
+    <div id="stage">
+
+      <!-- TOP-LEFT: current coverage -->
+      <div class="top-monitor">
+        <div class="top-title">Areas of interest</div>
+        <div class="top-content">
+          <div class="top-item">Power</div>
+          <div class="top-item">conflict</div>
+          <div class="top-item">intelligence</div>
+        </div>
+        <div class="top-sub">
+          <span>global affairs</span>
+          <span>due dilligence</span>
+          <br><span>open source research</span>
+          <br><span>mediation</span>
+        </div>
+      </div>
+
+      <!-- corridor accent, left-of-centre only (kept clear of the globe) -->
+      
+      
+
+      <!-- GLOBE, bled off the top-right corner -->
+      <div class="globe-top-right">
+        <svg viewBox="0 0 280 280">
+          <circle cx="140" cy="140" r="125" fill="none" stroke="var(--dim)" stroke-width="1.5" opacity="0.4"/>
+          <ellipse class="orbit-a" cx="140" cy="140" rx="125" ry="40" fill="none" stroke="var(--ochre)" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+          <ellipse class="orbit-b" cx="140" cy="140" rx="40" ry="125" fill="none" stroke="var(--ochre)" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+          <line x1="15" y1="140" x2="265" y2="140" stroke="var(--ochre)" stroke-width="1.5" opacity="0.5"/>
+
+          <ellipse class="orbit-a" cx="140" cy="140" rx="135" ry="55" fill="none" stroke="var(--cinnabar)" stroke-width="1" stroke-dasharray="8 8" opacity="0.3"/>
+          <circle cx="140" cy="140" r="130" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="2 8" opacity="0.25"/>
+
+          <!-- abstract landmasses (decorative, not a literal atlas) -->
+          <path d="M 110,60 C 90,40 140,30 170,40 C 200,50 230,70 240,90 C 250,120 240,150 220,170 C 200,190 170,200 150,210 C 130,220 100,200 90,180 C 80,160 70,130 80,110 C 90,90 100,70 110,60 Z" fill="var(--cinnabar)" opacity="0.22" stroke="var(--cinnabar)" stroke-width="2"/>
+          <path d="M 60,140 C 70,120 90,130 85,160 C 80,190 70,220 55,210 C 40,200 40,170 60,140 Z" fill="var(--ochre)" opacity="0.22" stroke="var(--ochre)" stroke-width="2"/>
+          <path d="M 220,190 C 240,180 250,200 240,220 C 230,240 200,230 210,210 C 220,200 215,195 220,190 Z" fill="var(--cinnabar)" opacity="0.22" stroke="var(--cinnabar)" stroke-width="2"/>
+
+          <!-- connection lines between monitored points -->
+          <path d="M 140,70 Q 100,110 90,180" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="6 6" opacity="0.75"/>
+          <path d="M 140,70 Q 180,90 240,90" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="6 6" opacity="0.75"/>
+          <path d="M 90,180 Q 140,200 240,190" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="6 6" opacity="0.75"/>
+          <path d="M 60,120 Q 90,150 90,180" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-dasharray="6 6" opacity="0.75"/>
+
+          <circle cx="140" cy="70" r="6" fill="var(--cinnabar)" stroke="var(--paper)" stroke-width="2.5"/>
+          <circle cx="90" cy="180" r="6" fill="var(--cinnabar)" stroke="var(--paper)" stroke-width="2.5"/>
+          <circle cx="240" cy="90" r="6" fill="var(--cinnabar)" stroke="var(--paper)" stroke-width="2.5"/>
+          <circle cx="60" cy="120" r="5" fill="var(--ochre)" stroke="var(--paper)" stroke-width="2.5"/>
+
+          <circle class="pulse" cx="240" cy="90" r="14" fill="none" stroke="var(--cinnabar)" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <!-- status marking (honest: work is genuinely unclassified/open-source) -->
+      <div class="classif">Status: Unclassified · Ready for Missions</div>
+
+      <div class="textblock">
+        <div class="name">Se Taylor</div>
+        <div class="role">Geopolitical Researcher</div>
+        <div class="focus">Monitoring foreign policy and global conflicts. </div>
+        <div class="rule"></div>
+        <div class="tags">
+          <div class="tag">International Relations</div>
+          <div class="tag">Diplomacy</div>
+          <div class="tag">Global South</div>
+          <div class="tag">Africa–China Relations</div>
+          
+      
+        </div>
+      </div>
+
+      <div class="safezone"></div>
+    </div>
+  </div>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script>
+  var themeBtn = document.getElementById('themeBtn');
+  themeBtn.addEventListener('click', function(){
+    var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    themeBtn.textContent = 'Theme: ' + (dark ? 'Light' : 'Dark');
+  });
+  var guideBtn = document.getElementById('guideBtn');
+  guideBtn.addEventListener('click', function(){
+    document.body.classList.toggle('hide-guide');
+    guideBtn.textContent = document.body.classList.contains('hide-guide') ? 'Show safe-zone guide' : 'Hide safe-zone guide';
+  });
+</script>
+</body>
+</html>
